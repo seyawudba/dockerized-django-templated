@@ -1,0 +1,21 @@
+# Django Project
+PROJECT_NAME=suapon
+SECRET_KEY=django-insecure-bhd)**m&m4okc*&4)*9(76mtmb%w)p5=@$6iyv+m3v89@k)$0i
+DEBUG=1
+
+# To allow only specific IP addresses, provide space-separated list. Defaults to allow all.
+ALLOWED_HOSTS=*
+
+# Port mappings to host machine
+# Defaults to 8000
+SERVER_PORT=
+# Defaults to 5432
+DATABASE_PORT=
+
+# DATABASE Credentials
+POSTGRES_DB=suapon_db
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+DB_HOST=db
+DB_PORT=
+

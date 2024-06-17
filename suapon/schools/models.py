@@ -5,12 +5,17 @@ from django.contrib.auth.models import User
 
 class CertificateType(models.Model):
     name=models.CharField(max_length=40)
-    abbreviation=models.CharField(max_length=5)
+    abbreviation=models.CharField(max_length=5,blank=True,null=True)
+    def __str__(self) -> str:
+        return self.name
 
 class ModeOfTeaching(models.TextChoices):
     FACE_TO_FACE="FF",_("Face-to-face")
     ONLINE="OL",_("Online")
     BLENDER_LEARNING="BL",_("Blender Learning")
+class Gender(models.TextChoices):
+    MALE="M",_("Male")
+    FEMALE="F",_("Female")
 
 class TimeOfStudy(models.TextChoices):
     FULL_TIME="FT",_("Full Time")
@@ -52,13 +57,19 @@ class Institution(models.Model):
     institution_type=models.CharField(choices=InstitutionType,max_length=2,default=InstitutionType.UNIVERSITY)
     ownership_type=models.CharField(choices=OwnershipType,default=OwnershipType.PUBLIC)
     enable=models.BooleanField(default=False)
-    owner=models.ForeignKey(User,models.SET_NULL,blank=True,null=True,)
+    owner=models.ForeignKey(User,models.SET_NULL,blank=True,null=True)
+    def __str__(self) -> str:
+        return self.name
 
     
 class Course(models.Model):
     name=models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.name
 
 class Campus(models.Model):
+    class Meta:
+        verbose_name_plural='campus'
     institution=models.ForeignKey(Institution,on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     location=models.CharField(max_length=100)
@@ -66,14 +77,27 @@ class Campus(models.Model):
     admission_start_date=models.DateField(blank=True,null=True)
     admission_end_date=models.DateField(blank=True,null=True)
     region=models.CharField(choices=RegionChoices)
+    def __str__(self) -> str:
+        return f'{self.institution.name} -> {self.name}'
 
 class CourseProfile(models.Model):
+    campus=models.ForeignKey(Campus,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     profile=models.TextField(blank=True)
     domestic_fee=models.DecimalField(max_digits=7,decimal_places=2)
     international_fee=models.DecimalField(max_digits=7,decimal_places=2)
-    campus=models.ForeignKey(Campus,on_delete=models.CASCADE)
     certificates=models.ManyToManyField(CertificateType)
     mode_of_teaching=models.CharField(choices=ModeOfTeaching)
     time_of_study=models.CharField(choices=TimeOfStudy)
     duration_of_study=models.DurationField()
+
+class Lead(models.Model):
+    firstname=models.CharField(max_length=100)
+    lastname=models.CharField(max_length=100)
+    gender=models.CharField(max_length=1,choices=Gender)
+    mobile=models.CharField(max_length=20)
+    email=models.EmailField()
+    course=models.ForeignKey(CourseProfile,models.SET_NULL,blank=True,null=True)
+    current_education_level=models.CharField()
+    def __str__(self) -> str:
+        return f'{self.firstname} {self.Lastname}'

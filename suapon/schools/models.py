@@ -54,13 +54,24 @@ class Institution(models.Model):
         PUBLIC="PB",_("Public")
         PRIVATE="PV",_("PRIVATE")
     name=models.CharField(max_length=100)
+    logo=models.ImageField(upload_to='images/logo/',null=True,blank=True)
     institution_type=models.CharField(choices=InstitutionType,max_length=2,default=InstitutionType.UNIVERSITY)
     ownership_type=models.CharField(choices=OwnershipType,default=OwnershipType.PUBLIC)
     enable=models.BooleanField(default=False)
-    owner=models.ForeignKey(User,models.SET_NULL,blank=True,null=True)
     def __str__(self) -> str:
         return self.name
 
+class Manager(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    phone = models.CharField(max_length=13, unique=True)
+    institution=models.ForeignKey(Institution,models.CASCADE)
+
+
+    def name(self) -> str:
+        return f'{self.first_name} {self.last_name}'
+
+    def __str__(self) -> str:
+        return self.get_full_name() if self.get_full_name() != '' else self.username
     
 class Course(models.Model):
     name=models.CharField(max_length=100)
@@ -77,6 +88,11 @@ class Campus(models.Model):
     admission_start_date=models.DateField(blank=True,null=True)
     admission_end_date=models.DateField(blank=True,null=True)
     region=models.CharField(choices=RegionChoices)
+    photo1=models.ImageField(upload_to='images/campus/',null=True,blank=True)
+    photo2=models.ImageField(upload_to='images/campus/',null=True,blank=True)
+    photo3=models.ImageField(upload_to='images/campus/',null=True,blank=True)
+    photo4=models.ImageField(upload_to='images/campus/',null=True,blank=True)
+    photo5=models.ImageField(upload_to='images/campus/',null=True,blank=True)
     def __str__(self) -> str:
         return f'{self.institution.name} -> {self.name}'
 

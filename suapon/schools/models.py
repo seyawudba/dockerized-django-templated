@@ -52,7 +52,7 @@ class Institution(models.Model):
         SHORT_COURSES="SC",_("Short Courses (CPD)")
     class OwnershipType(models.TextChoices):
         PUBLIC="PB",_("Public")
-        PRIVATE="PV",_("PRIVATE")
+        PRIVATE="PV",_("Private")
     name=models.CharField(max_length=100)
     logo=models.ImageField(upload_to='images/logo/',null=True,blank=True)
     institution_type=models.CharField(choices=InstitutionType,max_length=2,default=InstitutionType.UNIVERSITY)
@@ -97,6 +97,11 @@ class Campus(models.Model):
         return f'{self.institution.name} -> {self.name}'
 
 class CourseProfile(models.Model):
+    class DurationOfStudy(models.TextChoices):
+        YEARS="Y",_('Years')
+        MONTHS="M",_("Months")
+        WEEKS="W",_('Weeks')
+        DAYS="D",_('Days')
     campus=models.ForeignKey(Campus,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     profile=models.TextField(blank=True)
@@ -105,9 +110,12 @@ class CourseProfile(models.Model):
     certificates=models.ManyToManyField(CertificateType)
     mode_of_teaching=models.CharField(choices=ModeOfTeaching)
     time_of_study=models.CharField(choices=TimeOfStudy)
-    duration_of_study=models.DurationField()
+    duration_of_study=models.CharField(max_length=1,choices=DurationOfStudy)
 
 class Lead(models.Model):
+    class TypeOfStudent(models.TextChoices):
+        CITIZEN="C",_("Citizen")
+        FOREIGN="F",_("Foreign")
     firstname=models.CharField(max_length=100)
     lastname=models.CharField(max_length=100)
     gender=models.CharField(max_length=1,choices=Gender)
@@ -115,5 +123,6 @@ class Lead(models.Model):
     email=models.EmailField()
     course=models.ForeignKey(CourseProfile,models.SET_NULL,blank=True,null=True)
     current_education_level=models.CharField()
+    type_of_student=models.CharField(max_length=1)
     def __str__(self) -> str:
         return f'{self.firstname} {self.Lastname}'

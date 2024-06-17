@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 # Register your models here.
-class CampusInlineAdmin(admin.TabularInline):
+class CampusInlineAdmin(admin.StackedInline):
     model=Campus
     list_display=['name','location','phone','admission_start_date','admission_end_date','region']
     list_filter=['region']

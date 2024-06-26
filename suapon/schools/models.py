@@ -110,7 +110,8 @@ class CourseProfile(models.Model):
     certificates=models.ManyToManyField(CertificateType)
     mode_of_teaching=models.CharField(choices=ModeOfTeaching)
     time_of_study=models.CharField(choices=TimeOfStudy)
-    duration_of_study=models.CharField(max_length=1,choices=DurationOfStudy)
+    duration_of_study=models.IntegerField(default=1)
+    duration_of_study_unit=models.CharField(max_length=1,choices=DurationOfStudy)
 
 class Lead(models.Model):
     class TypeOfStudent(models.TextChoices):

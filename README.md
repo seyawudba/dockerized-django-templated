@@ -20,5 +20,6 @@ Create a new postgresql database
 2. On a new terminal, cd into the project folder `cd suapon`
 3. run `python manage.py migrate`
 4. Run `python manage.py createsuperuser`. Provide the required information to have an admin user created
-5. Open the app on [`http://localhost:8000/admin`]() (provided the port was not changed in **step 1**. Use the credentials in **step 4** to log in
+5. Run `python manage.py runserver`
+6. Open the app on [`http://localhost:8000/admin`]() (provided the port was not changed in **step 1**. Use the credentials in **step 4** to log in
 

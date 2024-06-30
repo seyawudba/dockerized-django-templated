@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}
+Document
+{% endblock %}
+
+{% block content %}
+<div class="__hero-container">
+    <div class="__hero-wrapper">
+        <div class="__hero-message">
+            <h1 class="__hero-maintext poppins-thin">
+                Take your school search to a
+                <span class="__rotate-art"> SMART </span>
+                level.
+            </h1>
+            <p class="__banner-p_large">
+                To get started, select the category that applies:
+            </p>
+            <div class="__banner-blog-large">
+                <a href="#" class="__banner-btn_1 __banner-btn">Primary Schools & Pre-Schools</a>
+                <a href="#" class="__banner-btn">Secondary Schools & Sixth Form</a>
+            </div>
+        </div>
+        <div class="__hero-image_wrapper">
+            <img class="__hero-image" src="{% static 'assets/motherteachingson.png' %}" alt="hero image" />
+        </div>
+        <p class="__banner-p-small">
+            To get started, select the category that applies:
+        </p>
+        <div class="__banner-blog-small">
+            <a href="#" class="__banner-btn_1 __banner-btn">Primary Schools & Pre-Schools</a>
+            <a href="#" class="__banner-btn">Secondary Schools & Sixth Form</a>
+        </div>
+    </div>
+</div>
+<div class="__pop-schools_wrapper">
+    <h3 class="__big-info">10 POPULAR SCHOOLS</h3>
+    <div class="__pop-schools_list"></div>
+    <!-- populated with js -->
+</div>
+<div class="__feature-schools_wrapper">
+    <h3 class="__big-info">FEATURED SCHOOLS</h3>
+    <div class="__featured-schools_list"></div>
+</div>
+<div class="__blog-post_wrapper">
+    <h3 class="__blog-heading">Our blog Posts</h3>
+    <div class="__blog-post_list">
+        <div class="card __blog-card">
+            <div class="card-image">
+                <img src="{% static 'assets/safety.jpg' %}" />
+                <!-- <span class="card-title">Card Title</span> -->
+            </div>
+            <p class="__date">2, Sept 2020</p>
+            <div class="card-content __blog-card_content">
+                <h5 class="poppins-semibold class __blog-card_heading">How to Choose a Creche</h5>
+                <p>If you stay in a busy community like we do, then the chance is...</p>
+                <button class="btn __blog-btn poppins-light">Learn More</button>
+            </div>
+        </div>
+        <div class="card __blog-card">
+            <div class="card-image">
+                <img src="{% static 'assets/blendedlearn.jpg' %}" />
+                <!-- <span class="card-title">Card Title</span> -->
+            </div>
+            <p class="__date">2, Sept 2020</p>
+            <div class="card-content __blog-card_content">
+                <h5 class="poppins-semibold class __blog-card_heading">5 Benefits of Nursery Education in Nigeria</h5>
+                <p>Nursery education in Nigeria plays a crucial role in the formative years of a child. A...</p>
+                <button class="btn __blog-btn poppins-light">Learn More</button>
+            </div>
+        </div>
+        <div class="card __blog-card">
+            <div class="card-image">
+                <img src="{% static 'assets/twentyfirst.jpg' %}" />
+                <!-- <span class="card-title">Card Title</span> -->
+            </div>
+            <p class="__date">2, Sept 2020</p>
+            <div class="card-content __blog-card_content">
+                <h5 class="poppins-semibold class __blog-card_heading">5 Skills Necessary to Become a Top-notch...</h5>
+                <p>It is a known fact that teaching a large group of children in the classroom can be fun-filled and this is why teaching is considered one of the sat ...</p>
+                <button class="btn __blog-btn poppins-light">Learn More</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

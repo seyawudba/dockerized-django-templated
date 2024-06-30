@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Insert Tit{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <!-- start of Navbar -->
+    <nav class="">
+        <!-- big screen -->
+        <div class="nav-wrapper">
+            <!-- <a href="#!" class="brand-logo">Logo</a> -->
+            <img src="https://schoolscompass.com.ng/themes/front/asset/logo.svg" alt="logo" class="responsive_img col s1" />
+            <div class="col s1 nav__link __tel">
+                <img src="https://schoolscompass.com.ng/themes/front/asset/tel.svg" alt="tel" />
+                <span>+233 59154 584</span>
+            </div>
+            <div class="__search-wrapper">
+                <input id="" type="text" class="browser-default search__field" placeholder="Quick Search: School name or location" />
+                <div class="__search-icon">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                </div>
+            </div>
+            <div class="col s1 nav__link">Contact Us</div>
+            <div class="col s1 nav__link teal-text __login">Login</div>
+            <button class="col s1 nav__btn">Profile Your School For <span class="gold">Free</span></button>
+        </div>
+        <!-- mobile navigation -->
+        <div class="mobile-nav_wrapper">
+            <!-- humburger menu -->
+            <div class="__menu">
+                <i class="fa-solid fa-bars" data-fa-transform="down-6" style="margin-top: 1.5rem"></i>
+            </div>
+            <!-- icon -->
+            <div class="small_img-wrapper">
+                <img src="https://schoolscompass.com.ng/themes/front/asset/logo.svg" alt="logo" class="small_img browser-default" />
+            </div>
+            <!-- search -->
+            <div class="__searchdown-trigger">
+                <i class="fa-solid fa-magnifying-glass" data-fa-transform="down-6" style="margin-top: 1.5rem"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="__dropdown">
+        <ul class="__dropdown-list">
+            <li class="__search-dropdown_wrapper">
+                <input id="" type="text" class="browser-default search__field" placeholder="Quick Search: School name or location" />
+                <div class="__dropdown-search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </li>
+            <li class="col s1 nav__link __tel">
+                <img src="https://schoolscompass.com.ng/themes/front/asset/tel.svg" alt="tel" />
+                <span>+233 59154 584</span>
+            </li>
+            <li class="col s1 nav__link">Contact Us</li>
+            <li class="col s1 nav__link teal-text __login">Login</li>
+            <button class="col s1 nav__btn">Profile Your School For <span class="gold">Free</span></button>
+        </ul>
+    </div>
+    <div class="__dropdown-forsearch">
+        <div class="__dropdown-forsearch-wrapper">
+            <div class="__search-forsearch_wrapper">
+                <input id="" type="text" class="browser-default __search-dropdown_input" placeholder="Quick Search: School name or location" />
+                <div class="__dropdown-search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of navbar -->
+
+    <!-- contents -->
+    <div class="__contents">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="__footer">
+            <div>
+                <div>
+                    <img src="https://schoolscompass.com.ng/themes/front/asset/logo.svg" alt="logo" class="__footer-logo" />
+                </div>
+                <ul class="__footer-list">
+                    <li>Welcome to SchoolsCompass, your ultimate destination for everything educational! Our innovative platform connects prospective families with schools in a seamless and efficient manner. <a href="#" class="__footer-link">Read More...</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6>TERMS AND CONDITIONS</h6>
+                <ul class="__footer-list">
+                    <li><a href="#">Acceptable Use Policy</a></li>
+                    <li><a href="#">Website Use Policy</a></li>
+                    <li><a href="#">Privacy and Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="__footer-heading">JOIN OUR COMMUNITY</h6>
+                <ul class="__footer-list">
+                    <li><a href="#">Profile Your School For FREE Join the Parents' Community</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="__footer-heading">CONTACT US</h6>
+                <ul class="__footer-list">
+                    <li>Advertise on SchoolsCompass</li>
+                    <li>Contact US</li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="__footer-heading">GENERAL</h6>
+                <ul class="__footer-list">
+                    <li>About Us</li>
+                    <li>Our Blog</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <p class="__footer-separator">SchoolsCompass. Copyright 2024</p>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

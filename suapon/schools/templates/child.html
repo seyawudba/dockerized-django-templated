@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}
-Document
+    Document
 {% endblock %}
 
 {% block content %}
@@ -22,7 +24,8 @@ Document
             </div>
         </div>
         <div class="__hero-image_wrapper">
-            <img class="__hero-image" src="{% static 'assets/motherteachingson.png' %}" alt="hero image" />
+            {% load static %}
+            <img class="__hero-image" src="{% static 'motherteachingson.png' %}" alt="hero image" />
         </div>
         <p class="__banner-p-small">
             To get started, select the category that applies:
@@ -47,7 +50,8 @@ Document
     <div class="__blog-post_list">
         <div class="card __blog-card">
             <div class="card-image">
-                <img src="{% static 'assets/safety.jpg' %}" />
+                {% load static %}
+                <img src="{% static 'safety.jpg' %}" />
                 <!-- <span class="card-title">Card Title</span> -->
             </div>
             <p class="__date">2, Sept 2020</p>
@@ -59,7 +63,8 @@ Document
         </div>
         <div class="card __blog-card">
             <div class="card-image">
-                <img src="{% static 'assets/blendedlearn.jpg' %}" />
+                {% load static %}
+                <img src="{% static 'blendedlearn.jpg' %}" />
                 <!-- <span class="card-title">Card Title</span> -->
             </div>
             <p class="__date">2, Sept 2020</p>
@@ -71,7 +76,8 @@ Document
         </div>
         <div class="card __blog-card">
             <div class="card-image">
-                <img src="{% static 'assets/twentyfirst.jpg' %}" />
+                {% load static %}
+                <img src="{% static 'twentyfirst.jpg' %}" />
                 <!-- <span class="card-title">Card Title</span> -->
             </div>
             <p class="__date">2, Sept 2020</p>
